@@ -21,24 +21,37 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     const int MAX_NUMBER_OF_ITEMS = 5;
     self.shortcutView.associatedUserDefaultsKey = CopyPasteShortCut;
     // Execute your block of code automatically when user triggers a shortcut from preferences
-    [MASShortcut registerGlobalShortcutWithUserDefaultsKey:CopyPasteShortCut handler:^{
-        
-        // Let me know if you find a better or more convenient API.
-    }];
+    self.isOpen = FALSE;
     self.pBoard = [NSPasteboard generalPasteboard];
     self.count = [self.pBoard changeCount];
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [self.statusItem setMenu:self.statusMenu];
+    [[self.statusItem menu] setDelegate:self];
     [self.statusItem setImage:[NSImage imageNamed:@"Status"]];
     [self.statusItem setAlternateImage:[NSImage imageNamed:@"StatusHighlighted"]];
     [self.statusItem setHighlightMode:YES];
+    [self addMenuItem];
     [MASShortcut registerGlobalShortcutWithUserDefaultsKey:CopyPasteShortCut handler:^{
+        NSLog([self isOpen] ? @"Yes" : @"No");
+        if ([[self window] isVisible]) {
+            [[self window ] close];
+            self.isOpen = NO;
+            NSLog(@"isopen already");
+        }
+        else {
+//            [ self.window makeKeyAndOrderFront: nil ];
+            NSApplication *myApp = [NSApplication sharedApplication];
+            [myApp activateIgnoringOtherApps:YES];
+            [self.window orderFrontRegardless];
+//            [self.window makeKeyWindow];
 
+            NSLog(@"SO false");
+//            [self.statusItem popUpStatusItemMenu: [self.statusItem menu]];
+        }
         // Let me know if you find a better or more convenient API.
     }];
-    [self addMenuItem];
     NSLog(@"updatemenuitem");
-    [NSTimer scheduledTimerWithTimeInterval:0.5
+    [NSTimer scheduledTimerWithTimeInterval:0.9
                                      target:self
                                    selector:@selector(updateMenuItem)
                                    userInfo:nil
@@ -59,7 +72,6 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
 - (void)updateMenuItem
 {
-    NSLog(@"updating");
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
 
         dispatch_async(queue, ^{
@@ -80,26 +92,28 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [controllerWindow showWindow:self];
 }*/
 
+
+
 -(void)setPasteBoardString:(id)sender
 {
-    NSLog(@"%@",[sender representedObject]);
-   /* NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
-    [pasteboard clearContents];
-    [pasteboard setString:[sender representedObject] forType:NSPasteboardTypeString];*/
-    [self addMenuItem];
+    
+    NSMenuItem *currentItem = [sender representedObject];
+    NSMenu *menu = [self.statusItem menu ];
+    [menu removeItem: currentItem];
+    NSLog(@"Removing %@",[currentItem title]);
+    [self.pBoard clearContents];
+    [self.pBoard setString:[currentItem title] forType:NSPasteboardTypeString];
 }
 
 -(void)addMenuItem
 {
     NSString* myString = [self.pBoard  stringForType:NSPasteboardTypeString];
-    NSInteger changecount = [self.pBoard changeCount];
-    NSLog(@"%ld",(long)changecount);
-    NSLog(@"%@",myString);
+
     NSMenu* menu = [self.statusItem menu];
     NSMenuItem* menuItem = [[NSMenuItem alloc] init];
     [menuItem setTitle:myString];
 
-    [menuItem setRepresentedObject:menuItem.title];
+    [menuItem setRepresentedObject:menuItem];
     [menuItem setTarget:self];
     [menuItem setEnabled:TRUE];
     [menuItem setAction:@selector(setPasteBoardString:)];
@@ -107,6 +121,19 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     NSString *keyString = [@(numberOfItems) stringValue];
     [menuItem setKeyEquivalent:keyString];
     [menu addItem: menuItem];
+}
+
+- (void)menuWillOpen:(NSMenu *)menu
+{
+    NSLog(@"called menuWillOpen");
+    self.isOpen = YES;
+}
+
+
+- (void)menuDidClose:(NSMenu *)menu
+{
+    NSLog(@"called menuDidClose");
+    self.isOpen = NO;
 }
 
 @end

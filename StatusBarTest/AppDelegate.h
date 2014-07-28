@@ -7,18 +7,24 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
 @class MASShortcutView;
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate,NSMenuDelegate>
 extern const int MAX_NUMBER_OF_ITEMS;
 
 
 - (void) updateMenuItem;
 
-@property (assign) IBOutlet NSWindow *window;
+- (void)menuWillOpen:(NSMenu *)menu;
+
+- (void)menuDidClose:(NSMenu *)menu;
+
+
 @property NSPasteboard *pBoard;
 @property NSInteger count;
+@property BOOL isOpen;
 
-
+@property (strong, nonatomic) IBOutlet NSWindow *window;
 @property (strong, nonatomic) IBOutlet NSMenu *statusMenu;
 @property (strong, nonatomic) NSStatusItem *statusItem;
 
