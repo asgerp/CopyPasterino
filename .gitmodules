@@ -1,0 +1,6 @@
+[submodule "MASPreferences"]
+	path = MASPreferences
+	url = git@github.com:shpakovski/MASPreferences.git	
+[submodule "MASShortcut"]
+	path = MASShortcut
+	url = git://github.com/shpakovski/MASShortcut.git
