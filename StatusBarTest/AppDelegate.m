@@ -16,11 +16,13 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
 @implementation AppDelegate
 
+#pragma mark -
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     const int MAX_NUMBER_OF_ITEMS = 5;
     self.shortcutView.associatedUserDefaultsKey = CopyPasteShortCut;
-    // Execute your block of code automatically when user triggers a shortcut from preferences
+
     self.isOpen = FALSE;
     self.pBoard = [NSPasteboard generalPasteboard];
     self.count = [self.pBoard changeCount];
@@ -31,6 +33,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [self.statusItem setAlternateImage:[NSImage imageNamed:@"StatusHighlighted"]];
     [self.statusItem setHighlightMode:YES];
     [self addMenuItem];
+    // Execute your block of code automatically when user triggers a shortcut from preferences
     [MASShortcut registerGlobalShortcutWithUserDefaultsKey:CopyPasteShortCut handler:^{
         NSLog([self isOpen] ? @"Yes" : @"No");
         if ([[self window] isVisible]) {
@@ -39,16 +42,12 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
             NSLog(@"isopen already");
         }
         else {
-//            [ self.window makeKeyAndOrderFront: nil ];
             NSApplication *myApp = [NSApplication sharedApplication];
             [myApp activateIgnoringOtherApps:YES];
             [self.window orderFrontRegardless];
-//            [self.window makeKeyWindow];
-
             NSLog(@"SO false");
-//            [self.statusItem popUpStatusItemMenu: [self.statusItem menu]];
         }
-        // Let me know if you find a better or more convenient API.
+
     }];
     NSLog(@"updatemenuitem");
     [NSTimer scheduledTimerWithTimeInterval:0.9
@@ -61,6 +60,8 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     
 }
 
+#pragma mark -
+
 - (BOOL)changeCountChange
 {
     if (self.count != [self.pBoard changeCount]) {
@@ -69,6 +70,8 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     }
     return true;
 }
+
+#pragma mark -
 
 - (void)updateMenuItem
 {
@@ -87,12 +90,15 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     
     
 }
+
+#pragma mark -
+
 /*-(IBAction)openNewWindow:(id)sender {
     controllerWindow = [[NSWindowController alloc] initWithWindowNibName:@"You Window XIB Name"];
     [controllerWindow showWindow:self];
 }*/
 
-
+#pragma mark -
 
 -(void)setPasteBoardString:(id)sender
 {
@@ -104,6 +110,8 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [self.pBoard clearContents];
     [self.pBoard setString:[currentItem title] forType:NSPasteboardTypeString];
 }
+
+#pragma mark -
 
 -(void)addMenuItem
 {
@@ -122,6 +130,8 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [menuItem setKeyEquivalent:keyString];
     [menu addItem: menuItem];
 }
+
+#pragma mark -
 
 - (void)menuWillOpen:(NSMenu *)menu
 {
