@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		002EC4F5195C3389002AD64A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC4F4195C3389002AD64A /* Cocoa.framework */; };
+		002EC4FF195C3389002AD64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002EC4FD195C3389002AD64A /* InfoPlist.strings */; };
+		002EC501195C3389002AD64A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 002EC500195C3389002AD64A /* main.m */; };
+		002EC505195C3389002AD64A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 002EC503195C3389002AD64A /* Credits.rtf */; };
+		002EC508195C338A002AD64A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 002EC507195C338A002AD64A /* AppDelegate.m */; };
+		002EC50B195C338A002AD64A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002EC509195C338A002AD64A /* MainMenu.xib */; };
+		002EC50D195C338A002AD64A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002EC50C195C338A002AD64A /* Images.xcassets */; };
+		002EC514195C338A002AD64A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC513195C338A002AD64A /* XCTest.framework */; };
+		002EC515195C338A002AD64A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC4F4195C3389002AD64A /* Cocoa.framework */; };
+		002EC51D195C338A002AD64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002EC51B195C338A002AD64A /* InfoPlist.strings */; };
+		002EC51F195C338A002AD64A /* StatusBarTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 002EC51E195C338A002AD64A /* StatusBarTestTests.m */; };
+		004B643D1986A1EB006C232B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 004B642F1986A1EB006C232B /* .gitignore */; };
+		004B643E1986A1EB006C232B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 004B64301986A1EB006C232B /* LICENSE */; };
+		004B643F1986A1EB006C232B /* MASShortcut+Monitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B64321986A1EB006C232B /* MASShortcut+Monitoring.m */; };
+		004B64401986A1EB006C232B /* MASShortcut+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B64341986A1EB006C232B /* MASShortcut+UserDefaults.m */; };
+		004B64411986A1EB006C232B /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B64361986A1EB006C232B /* MASShortcut.m */; };
+		004B64421986A1EB006C232B /* MASShortcut.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 004B64371986A1EB006C232B /* MASShortcut.podspec */; };
+		004B64431986A1EB006C232B /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B64391986A1EB006C232B /* MASShortcutView+UserDefaults.m */; };
+		004B64441986A1EB006C232B /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B643B1986A1EB006C232B /* MASShortcutView.m */; };
+		004B64451986A1EB006C232B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 004B643C1986A1EB006C232B /* README.md */; };
+		004B644F1986B4AC006C232B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 004B64471986B4AC006C232B /* .gitignore */; };
+		004B64501986B4AC006C232B /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 004B64481986B4AC006C232B /* LICENSE.md */; };
+		004B64511986B4AC006C232B /* MASPreferences.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 004B64491986B4AC006C232B /* MASPreferences.podspec */; };
+		004B64521986B4AC006C232B /* MASPreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 004B644B1986B4AC006C232B /* MASPreferencesWindow.xib */; };
+		004B64531986B4AC006C232B /* MASPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004B644D1986B4AC006C232B /* MASPreferencesWindowController.m */; };
+		004B64541986B4AC006C232B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 004B644E1986B4AC006C232B /* README.md */; };
+		00B74A76195C3E33000AE9B0 /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A74195C3E33000AE9B0 /* Status.png */; };
+		00B74A77195C3E33000AE9B0 /* Status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A75195C3E33000AE9B0 /* Status@2x.png */; };
+		00B74A7A195C3E3F000AE9B0 /* StatusHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A78195C3E3F000AE9B0 /* StatusHighlighted.png */; };
+		00B74A7B195C3E3F000AE9B0 /* StatusHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A79195C3E3F000AE9B0 /* StatusHighlighted@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		002EC516195C338A002AD64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 002EC4E9195C3389002AD64A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002EC4F0195C3389002AD64A;
+			remoteInfo = StatusBarTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		002EC4F1195C3389002AD64A /* CopyPasterino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasterino.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		002EC4F4195C3389002AD64A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		002EC4F7195C3389002AD64A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		002EC4F8195C3389002AD64A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		002EC4F9195C3389002AD64A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		002EC4FC195C3389002AD64A /* CopyPasterino-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CopyPasterino-Info.plist"; sourceTree = "<group>"; };
+		002EC4FE195C3389002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		002EC500195C3389002AD64A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		002EC502195C3389002AD64A /* CopyPasterino-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopyPasterino-Prefix.pch"; sourceTree = "<group>"; };
+		002EC504195C3389002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		002EC506195C3389002AD64A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		002EC507195C338A002AD64A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		002EC50A195C338A002AD64A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		002EC50C195C338A002AD64A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		002EC512195C338A002AD64A /* CopyPasterinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyPasterinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		002EC513195C338A002AD64A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		002EC51A195C338A002AD64A /* CopyPasterinoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CopyPasterinoTests-Info.plist"; sourceTree = "<group>"; };
+		002EC51C195C338A002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		002EC51E195C338A002AD64A /* StatusBarTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarTestTests.m; sourceTree = "<group>"; };
+		004B642F1986A1EB006C232B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		004B64301986A1EB006C232B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		004B64311986A1EB006C232B /* MASShortcut+Monitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+Monitoring.h"; sourceTree = "<group>"; };
+		004B64321986A1EB006C232B /* MASShortcut+Monitoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+Monitoring.m"; sourceTree = "<group>"; };
+		004B64331986A1EB006C232B /* MASShortcut+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+UserDefaults.h"; sourceTree = "<group>"; };
+		004B64341986A1EB006C232B /* MASShortcut+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+UserDefaults.m"; sourceTree = "<group>"; };
+		004B64351986A1EB006C232B /* MASShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
+		004B64361986A1EB006C232B /* MASShortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
+		004B64371986A1EB006C232B /* MASShortcut.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MASShortcut.podspec; sourceTree = "<group>"; };
+		004B64381986A1EB006C232B /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
+		004B64391986A1EB006C232B /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
+		004B643A1986A1EB006C232B /* MASShortcutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
+		004B643B1986A1EB006C232B /* MASShortcutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
+		004B643C1986A1EB006C232B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		004B64471986B4AC006C232B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		004B64481986B4AC006C232B /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.md; sourceTree = "<group>"; };
+		004B64491986B4AC006C232B /* MASPreferences.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MASPreferences.podspec; sourceTree = "<group>"; };
+		004B644A1986B4AC006C232B /* MASPreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesViewController.h; sourceTree = "<group>"; };
+		004B644B1986B4AC006C232B /* MASPreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASPreferencesWindow.xib; sourceTree = "<group>"; };
+		004B644C1986B4AC006C232B /* MASPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASPreferencesWindowController.h; sourceTree = "<group>"; };
+		004B644D1986B4AC006C232B /* MASPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASPreferencesWindowController.m; sourceTree = "<group>"; };
+		004B644E1986B4AC006C232B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		00B74A74195C3E33000AE9B0 /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status.png; sourceTree = "<group>"; };
+		00B74A75195C3E33000AE9B0 /* Status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Status@2x.png"; sourceTree = "<group>"; };
+		00B74A78195C3E3F000AE9B0 /* StatusHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusHighlighted.png; sourceTree = "<group>"; };
+		00B74A79195C3E3F000AE9B0 /* StatusHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StatusHighlighted@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		002EC4EE195C3389002AD64A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002EC4F5195C3389002AD64A /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002EC50F195C338A002AD64A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002EC515195C338A002AD64A /* Cocoa.framework in Frameworks */,
+				002EC514195C338A002AD64A /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		002EC4E8195C3389002AD64A = {
+			isa = PBXGroup;
+			children = (
+				002EC4FA195C3389002AD64A /* StatusBarTest */,
+				002EC518195C338A002AD64A /* StatusBarTestTests */,
+				002EC4F3195C3389002AD64A /* Frameworks */,
+				002EC4F2195C3389002AD64A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		002EC4F2195C3389002AD64A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				002EC4F1195C3389002AD64A /* CopyPasterino.app */,
+				002EC512195C338A002AD64A /* CopyPasterinoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		002EC4F3195C3389002AD64A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				002EC4F4195C3389002AD64A /* Cocoa.framework */,
+				002EC513195C338A002AD64A /* XCTest.framework */,
+				002EC4F6195C3389002AD64A /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		002EC4F6195C3389002AD64A /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				002EC4F7195C3389002AD64A /* AppKit.framework */,
+				002EC4F8195C3389002AD64A /* CoreData.framework */,
+				002EC4F9195C3389002AD64A /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		002EC4FA195C3389002AD64A /* StatusBarTest */ = {
+			isa = PBXGroup;
+			children = (
+				004B64461986B4AC006C232B /* MASPreferences */,
+				004B642E1986A1EB006C232B /* MASShortcut */,
+				00B74A78195C3E3F000AE9B0 /* StatusHighlighted.png */,
+				00B74A79195C3E3F000AE9B0 /* StatusHighlighted@2x.png */,
+				00B74A74195C3E33000AE9B0 /* Status.png */,
+				00B74A75195C3E33000AE9B0 /* Status@2x.png */,
+				002EC506195C3389002AD64A /* AppDelegate.h */,
+				002EC507195C338A002AD64A /* AppDelegate.m */,
+				002EC509195C338A002AD64A /* MainMenu.xib */,
+				002EC50C195C338A002AD64A /* Images.xcassets */,
+				002EC4FB195C3389002AD64A /* Supporting Files */,
+			);
+			path = StatusBarTest;
+			sourceTree = "<group>";
+		};
+		002EC4FB195C3389002AD64A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				002EC4FC195C3389002AD64A /* CopyPasterino-Info.plist */,
+				002EC4FD195C3389002AD64A /* InfoPlist.strings */,
+				002EC500195C3389002AD64A /* main.m */,
+				002EC502195C3389002AD64A /* CopyPasterino-Prefix.pch */,
+				002EC503195C3389002AD64A /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		002EC518195C338A002AD64A /* StatusBarTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				002EC51E195C338A002AD64A /* StatusBarTestTests.m */,
+				002EC519195C338A002AD64A /* Supporting Files */,
+			);
+			path = StatusBarTestTests;
+			sourceTree = "<group>";
+		};
+		002EC519195C338A002AD64A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				002EC51A195C338A002AD64A /* CopyPasterinoTests-Info.plist */,
+				002EC51B195C338A002AD64A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		004B642E1986A1EB006C232B /* MASShortcut */ = {
+			isa = PBXGroup;
+			children = (
+				004B642F1986A1EB006C232B /* .gitignore */,
+				004B64301986A1EB006C232B /* LICENSE */,
+				004B64311986A1EB006C232B /* MASShortcut+Monitoring.h */,
+				004B64321986A1EB006C232B /* MASShortcut+Monitoring.m */,
+				004B64331986A1EB006C232B /* MASShortcut+UserDefaults.h */,
+				004B64341986A1EB006C232B /* MASShortcut+UserDefaults.m */,
+				004B64351986A1EB006C232B /* MASShortcut.h */,
+				004B64361986A1EB006C232B /* MASShortcut.m */,
+				004B64371986A1EB006C232B /* MASShortcut.podspec */,
+				004B64381986A1EB006C232B /* MASShortcutView+UserDefaults.h */,
+				004B64391986A1EB006C232B /* MASShortcutView+UserDefaults.m */,
+				004B643A1986A1EB006C232B /* MASShortcutView.h */,
+				004B643B1986A1EB006C232B /* MASShortcutView.m */,
+				004B643C1986A1EB006C232B /* README.md */,
+			);
+			path = MASShortcut;
+			sourceTree = SOURCE_ROOT;
+		};
+		004B64461986B4AC006C232B /* MASPreferences */ = {
+			isa = PBXGroup;
+			children = (
+				004B64471986B4AC006C232B /* .gitignore */,
+				004B64481986B4AC006C232B /* LICENSE.md */,
+				004B64491986B4AC006C232B /* MASPreferences.podspec */,
+				004B644A1986B4AC006C232B /* MASPreferencesViewController.h */,
+				004B644B1986B4AC006C232B /* MASPreferencesWindow.xib */,
+				004B644C1986B4AC006C232B /* MASPreferencesWindowController.h */,
+				004B644D1986B4AC006C232B /* MASPreferencesWindowController.m */,
+				004B644E1986B4AC006C232B /* README.md */,
+			);
+			path = MASPreferences;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		002EC4F0195C3389002AD64A /* CopyPasterino */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 002EC522195C338A002AD64A /* Build configuration list for PBXNativeTarget "CopyPasterino" */;
+			buildPhases = (
+				002EC4ED195C3389002AD64A /* Sources */,
+				002EC4EE195C3389002AD64A /* Frameworks */,
+				002EC4EF195C3389002AD64A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CopyPasterino;
+			productName = StatusBarTest;
+			productReference = 002EC4F1195C3389002AD64A /* CopyPasterino.app */;
+			productType = "com.apple.product-type.application";
+		};
+		002EC511195C338A002AD64A /* CopyPasterinoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 002EC525195C338A002AD64A /* Build configuration list for PBXNativeTarget "CopyPasterinoTests" */;
+			buildPhases = (
+				002EC50E195C338A002AD64A /* Sources */,
+				002EC50F195C338A002AD64A /* Frameworks */,
+				002EC510195C338A002AD64A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				002EC517195C338A002AD64A /* PBXTargetDependency */,
+			);
+			name = CopyPasterinoTests;
+			productName = StatusBarTestTests;
+			productReference = 002EC512195C338A002AD64A /* CopyPasterinoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		002EC4E9195C3389002AD64A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					002EC511195C338A002AD64A = {
+						TestTargetID = 002EC4F0195C3389002AD64A;
+					};
+				};
+			};
+			buildConfigurationList = 002EC4EC195C3389002AD64A /* Build configuration list for PBXProject "CopyPasterino" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 002EC4E8195C3389002AD64A;
+			productRefGroup = 002EC4F2195C3389002AD64A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				002EC4F0195C3389002AD64A /* CopyPasterino */,
+				002EC511195C338A002AD64A /* CopyPasterinoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		002EC4EF195C3389002AD64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002EC4FF195C3389002AD64A /* InfoPlist.strings in Resources */,
+				002EC50D195C338A002AD64A /* Images.xcassets in Resources */,
+				00B74A7B195C3E3F000AE9B0 /* StatusHighlighted@2x.png in Resources */,
+				00B74A77195C3E33000AE9B0 /* Status@2x.png in Resources */,
+				004B64521986B4AC006C232B /* MASPreferencesWindow.xib in Resources */,
+				004B643E1986A1EB006C232B /* LICENSE in Resources */,
+				002EC505195C3389002AD64A /* Credits.rtf in Resources */,
+				004B64501986B4AC006C232B /* LICENSE.md in Resources */,
+				004B64451986A1EB006C232B /* README.md in Resources */,
+				004B64511986B4AC006C232B /* MASPreferences.podspec in Resources */,
+				00B74A76195C3E33000AE9B0 /* Status.png in Resources */,
+				004B64541986B4AC006C232B /* README.md in Resources */,
+				00B74A7A195C3E3F000AE9B0 /* StatusHighlighted.png in Resources */,
+				004B64421986A1EB006C232B /* MASShortcut.podspec in Resources */,
+				004B643D1986A1EB006C232B /* .gitignore in Resources */,
+				004B644F1986B4AC006C232B /* .gitignore in Resources */,
+				002EC50B195C338A002AD64A /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002EC510195C338A002AD64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002EC51D195C338A002AD64A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		002EC4ED195C3389002AD64A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				004B64401986A1EB006C232B /* MASShortcut+UserDefaults.m in Sources */,
+				004B64411986A1EB006C232B /* MASShortcut.m in Sources */,
+				002EC508195C338A002AD64A /* AppDelegate.m in Sources */,
+				004B64431986A1EB006C232B /* MASShortcutView+UserDefaults.m in Sources */,
+				004B64531986B4AC006C232B /* MASPreferencesWindowController.m in Sources */,
+				004B64441986A1EB006C232B /* MASShortcutView.m in Sources */,
+				002EC501195C3389002AD64A /* main.m in Sources */,
+				004B643F1986A1EB006C232B /* MASShortcut+Monitoring.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002EC50E195C338A002AD64A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002EC51F195C338A002AD64A /* StatusBarTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		002EC517195C338A002AD64A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 002EC4F0195C3389002AD64A /* CopyPasterino */;
+			targetProxy = 002EC516195C338A002AD64A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		002EC4FD195C3389002AD64A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002EC4FE195C3389002AD64A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		002EC503195C3389002AD64A /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002EC504195C3389002AD64A /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		002EC509195C338A002AD64A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002EC50A195C338A002AD64A /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		002EC51B195C338A002AD64A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002EC51C195C338A002AD64A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		002EC520195C338A002AD64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		002EC521195C338A002AD64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		002EC523195C338A002AD64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatusBarTest/CopyPasterino-Prefix.pch";
+				INFOPLIST_FILE = "StatusBarTest/CopyPasterino-Info.plist";
+				PRODUCT_NAME = CopyPasterino;
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		002EC524195C338A002AD64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatusBarTest/CopyPasterino-Prefix.pch";
+				INFOPLIST_FILE = "StatusBarTest/CopyPasterino-Info.plist";
+				PRODUCT_NAME = CopyPasterino;
+				VERSIONING_SYSTEM = "apple-generic";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		002EC526195C338A002AD64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatusBarTest.app/Contents/MacOS/StatusBarTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatusBarTest/StatusBarTest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "StatusBarTestTests/CopyPasterinoTests-Info.plist";
+				PRODUCT_NAME = CopyPasterinoTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		002EC527195C338A002AD64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatusBarTest.app/Contents/MacOS/StatusBarTest";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatusBarTest/StatusBarTest-Prefix.pch";
+				INFOPLIST_FILE = "StatusBarTestTests/CopyPasterinoTests-Info.plist";
+				PRODUCT_NAME = CopyPasterinoTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		002EC4EC195C3389002AD64A /* Build configuration list for PBXProject "CopyPasterino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002EC520195C338A002AD64A /* Debug */,
+				002EC521195C338A002AD64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		002EC522195C338A002AD64A /* Build configuration list for PBXNativeTarget "CopyPasterino" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002EC523195C338A002AD64A /* Debug */,
+				002EC524195C338A002AD64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		002EC525195C338A002AD64A /* Build configuration list for PBXNativeTarget "CopyPasterinoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002EC526195C338A002AD64A /* Debug */,
+				002EC527195C338A002AD64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 002EC4E9195C3389002AD64A /* Project object */;
+}

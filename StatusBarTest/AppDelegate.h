@@ -9,8 +9,14 @@
 #import <Cocoa/Cocoa.h>
 
 @class MASShortcutView;
-@interface AppDelegate : NSObject <NSApplicationDelegate,NSMenuDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, NSTableViewDelegate, NSTableViewDataSource>{
+@private
+    NSMutableArray *_tableContents;
+
+}
 extern const int MAX_NUMBER_OF_ITEMS;
+
+
 
 
 - (void) updateMenuItem;
@@ -27,6 +33,8 @@ extern const int MAX_NUMBER_OF_ITEMS;
 @property (strong, nonatomic) IBOutlet NSWindow *window;
 @property (strong, nonatomic) IBOutlet NSMenu *statusMenu;
 @property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) IBOutlet NSView *scrollView;
+@property (strong, nonatomic) IBOutlet NSTableView *tableView;
 
 
 
