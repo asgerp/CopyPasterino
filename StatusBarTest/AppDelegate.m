@@ -32,6 +32,8 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     self.shortcutView.associatedUserDefaultsKey = CopyPasteShortCut;
     _tableContents = [NSMutableArray new];
     self.tableView.dataSource = self;
+    [self.tableView setTarget:self];
+    [self.tableView setAction:@selector(updateTableAndPaste)];
     
     self.isOpen = FALSE;
     self.pBoard = [NSPasteboard generalPasteboard];
@@ -57,13 +59,11 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
         }
 
     }];
-    NSLog(@"updatemenuitem");
     [NSTimer scheduledTimerWithTimeInterval:0.9
                                      target:self
                                    selector:@selector(updateMenuItem)
                                    userInfo:nil
                                     repeats:YES];
-    NSLog(@"updatemenuitem done");
 
     
 }
@@ -106,6 +106,27 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [controllerWindow showWindow:self];
 }*/
 
+
+-(void)updateTableAndPaste
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    NSInteger row = [self.tableView clickedRow];
+    dispatch_async(queue, ^{
+        
+        NSDictionary *dict = [_tableContents objectAtIndex:row];
+        [_tableContents removeObjectAtIndex:row];
+        [_tableContents insertObject:dict atIndex:0];
+        self.count += 1;
+        [self.pBoard clearContents];
+        [self.pBoard setString:[dict objectForKey:@"Name"] forType:NSPasteboardTypeString];
+
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.tableView moveRowAtIndex:row toIndex:1];
+        });
+    });
+    
+}
+
 #pragma mark -
 
 -(void)setPasteBoardString:(id)sender
@@ -114,7 +135,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     NSMenuItem *currentItem = [sender representedObject];
     NSMenu *menu = [self.statusItem menu ];
     [menu removeItem: currentItem];
-    NSLog(@"Removing %@",[currentItem title]);
+    DLog(@"Removing %@",[currentItem title]);
     [self.pBoard clearContents];
     [self.pBoard setString:[currentItem title] forType:NSPasteboardTypeString];
 }
@@ -123,6 +144,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
 -(void)addMenuItem
 {
+    DLog(@"called menu item");
     NSString* myString = [self.pBoard  stringForType:NSPasteboardTypeString];
 
     if (myString != nil) {
@@ -138,21 +160,15 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
         NSString *keyString = [@(numberOfItems) stringValue];
         [menuItem setKeyEquivalent:keyString];
         [menu addItem: menuItem];
-        NSDictionary *activeApp = [[NSWorkspace sharedWorkspace] frontmostApplication];
-        NSString *activeAppName = [activeApp objectForKey:@"NSApplicationName"];
-        NSString *activeAppBundleIdentifier = [activeApp objectForKey:@"NSApplicationBundleIdentifier"];
-        NSLog(@"Active application is: %@", activeAppName );
-        NSArray *runningApps = [NSRunningApplication runningApplicationsWithBundleIdentifier:activeAppBundleIdentifier];
-        if (runningApps.count > 0) {
-            NSRunningApplication *runningApp = runningApps[0];
-            NSImage *image = runningApp.icon;
-
-            NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:activeAppName, @"Name", image, @"Image", nil];
-            [_tableContents addObject:dictionary];
-            NSLog(@"running app is: %@", activeAppName);
-        }
+        NSRunningApplication *activeApp = [[NSWorkspace sharedWorkspace] frontmostApplication];
         
-    
+        NSString *activeAppName = activeApp.localizedName;
+
+        NSImage *image = activeApp.icon.copy;
+
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:myString, @"Name", image, @"Image", nil];
+        [_tableContents insertObject:dictionary atIndex:0];
+
         
         [self.tableView reloadData];
     }
@@ -162,40 +178,36 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
 - (void)menuWillOpen:(NSMenu *)menu
 {
-    NSLog(@"called menuWillOpen");
+
     self.isOpen = YES;
 }
 
 
 - (void)menuDidClose:(NSMenu *)menu
 {
-    NSLog(@"called menuDidClose");
+
     self.isOpen = NO;
 }
 
 #pragma mark -
 
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)aTableView{
-    NSLog(@"called numberOfRowsInTableView");
-    NSLog(@" has %@", [_tableContents objectAtIndex:_tableContents.count -1]);
     return _tableContents.count;
 }
 
 - (NSView *)tableView:(NSTableView *)aTableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    NSLog(@"called tableView");
+
 
     // Retrieve to get the @"MyView" from the pool or,
     // if no version is available in the pool, load the Interface Builder version
     NSDictionary *dictionary = [_tableContents objectAtIndex:row];
     // In IB the tableColumn has the identifier set to the same string as the keys in our dictionary
     NSString *identifier = [tableColumn identifier];
-    NSLog(@"identifier %@",identifier);
     
     NSTableCellView *cellView = [aTableView makeViewWithIdentifier:identifier owner:self];
     cellView.textField.stringValue = [dictionary objectForKey:@"Name"];
     cellView.imageView.objectValue = [dictionary objectForKey:@"Image"];
 
-    
     return cellView;
 }
 

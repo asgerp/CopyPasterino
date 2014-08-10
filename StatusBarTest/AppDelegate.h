@@ -20,6 +20,9 @@ extern const int MAX_NUMBER_OF_ITEMS;
 
 
 - (void) updateMenuItem;
+- (void) updateTableAndPaste;
+
+
 
 - (void)menuWillOpen:(NSMenu *)menu;
 
