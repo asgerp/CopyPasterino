@@ -33,7 +33,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     _tableContents = [NSMutableArray new];
     self.tableView.dataSource = self;
     [self.tableView setTarget:self];
-    [self.tableView setAction:@selector(updateTableAndPaste)];
+    [self.tableView setDoubleAction:@selector(updateTableAndPaste)];
     
     self.isOpen = FALSE;
     self.pBoard = [NSPasteboard generalPasteboard];
@@ -121,7 +121,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
         [self.pBoard setString:[dict objectForKey:@"Name"] forType:NSPasteboardTypeString];
 
         dispatch_sync(dispatch_get_main_queue(), ^{
-            [self.tableView moveRowAtIndex:row toIndex:1];
+            [self.tableView moveRowAtIndex:row toIndex:0];
         });
     });
     
