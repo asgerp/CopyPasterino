@@ -32,39 +32,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         self.tableView.doubleAction = Selector("updateTableAndPaste")
         self.count = pBoard.changeCount
         
-        self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(NSVariableStatusItemLength)
-        self.statusItem.image = NSImage(named: "Status")
-        self.statusItem.alternateImage = NSImage(named: "StatusHighlighted")
-        self.statusItem.highlightMode = true
+        self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+        self.statusItem.menu = self.statusMenu
+        self.statusItem.menu?.delegate = self
+        self.statusItem!.image = NSImage(named: "Status")
+        self.statusItem!.alternateImage = NSImage(named: "StatusHighlighted")
+        self.statusItem!.highlightMode = true
         
         self.addMenuItem()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.9, target: self, selector: Selector("updateMenuItem:"), userInfo: nil, repeats: true)
-        
-    
-
+        NSTimer.scheduledTimerWithTimeInterval(0.9, target: self, selector: Selector("updateMenuItem"), userInfo: nil, repeats: true)
         
     }
+    
     //MARK:
-    
-    /*- (void)updateMenuItem
-    {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    
-    dispatch_async(queue, ^{
-    
-    BOOL change = [self changeCountChange];
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
-    if (!change) {
-    [self addMenuItem];
-    }
-    });
-    });
-    
-    
-    }*/
-    
     func updateMenuItem(){
         var queue:dispatch_queue_attr_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         dispatch_async(queue, {
@@ -88,16 +69,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         return true
     }
     
-    func updateTableAndPaste(){}
     
-    
-    func setPasteBoardString(sender: NSMenuItem){
+    func updateTableAndPaste(){
+        var queue:dispatch_queue_attr_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        var row:Int = self.tableView.clickedRow
+        dispatch_async(queue, {() -> Void in
+            var paste = self._tableContents.removeAtIndex(row)
+            self._tableContents.insert(paste, atIndex: 0)
+            self.count += 1
+            self.pBoard.clearContents()
+            self.pBoard.setString(paste.paste, forType: NSPasteboardTypeString)
+            dispatch_sync(dispatch_get_main_queue(), {() -> Void in
+                self.tableView.moveRowAtIndex(row, toIndex: 0)
+            })
+        })
+    }
+
+
+    func setPasteBoardString(Sender: NSMenuItem){
         
-        var menu:NSMenu = self.statusItem.menu!
+        var menu:NSMenu = self.statusItem!.menu!
         
-        menu.removeItem(sender)
+        menu.removeItem(Sender)
         self.pBoard.clearContents()
-        self.pBoard.setString(sender.title, forType: NSPasteboardTypeString)
+        self.pBoard.setString(Sender.title, forType: NSPasteboardTypeString)
         
     }
 
@@ -105,7 +100,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     func addMenuItem(){
         var myString:String = self.pBoard.stringForType(NSPasteboardTypeString)!
         
-        var menu:NSMenu = self.statusItem.menu!
+        var menu:NSMenu = self.statusItem!.menu!
         var numberOfItems = menu.numberOfItems + 1
         var menuItem:NSMenuItem = NSMenuItem(title: myString, action: Selector("setPasteBoardString:"),
             keyEquivalent: String(numberOfItems))
@@ -114,15 +109,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         menuItem.enabled = true
         menu.addItem(menuItem)
         
-        var activeApp = NSWorkspace.sharedWorkspace().frontmostApplication
+        let activeApp = NSWorkspace.sharedWorkspace().frontmostApplication
         
         let activeAppName = activeApp?.localizedName
         
         let image = activeApp?.icon?.copy() as NSImage
         
-        let paste:Paste = Paste(paste: myString, name: activeAppName!, image: image)
+        var paste:Paste = Paste(paste: myString, name: activeAppName!, image: image)
         self._tableContents.insert(paste, atIndex: 0)
-        
         self.tableView.reloadData()
     }
 
@@ -141,8 +135,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         return _tableContents.count
     }
     
-    func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn!, row: Int) -> CopyPasterinoTableCellView? {
-        var dictionary:Paste = _tableContents.removeAtIndex(row)
+    func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn!, row: Int) -> NSView? {
+        let dictionary:Paste = _tableContents[row]
         var identifier:String = tableColumn.identifier
         
 
