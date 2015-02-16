@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
+//#import "CopyPasterino-Swift.h"
+#import "MASShortcut/Shortcut.h"
 #import "MASShortcutView.h"
-#import "MASShortcutView+UserDefaults.h"
-#import "MASShortcut+UserDefaults.h"
-#import "MASShortcut+Monitoring.h"
 
 
 NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
@@ -28,7 +27,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    const int MAX_NUMBER_OF_ITEMS = 5;
+    //const int MAX_NUMBER_OF_ITEMS = 5;
     self.shortcutView.associatedUserDefaultsKey = CopyPasteShortCut;
     _tableContents = [NSMutableArray new];
     self.tableView.dataSource = self;
@@ -46,7 +45,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     [self.statusItem setHighlightMode:YES];
     [self addMenuItem];
     // Execute your block of code automatically when user triggers a shortcut from preferences
-    [MASShortcut registerGlobalShortcutWithUserDefaultsKey:CopyPasteShortCut handler:^{
+    /*[MASShortcut registerGlobalShortcutWithUserDefaultsKey:CopyPasteShortCut handler:^{
         NSLog([self isOpen] ? @"Yes" : @"No");
         if ([[self window] isVisible]) {
             [[self window ] close];
@@ -58,7 +57,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
             [self.window orderFrontRegardless];
         }
 
-    }];
+    }];*/
     [NSTimer scheduledTimerWithTimeInterval:0.9
                                      target:self
                                    selector:@selector(updateMenuItem)
@@ -118,7 +117,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
         [_tableContents insertObject:dict atIndex:0];
         self.count += 1;
         [self.pBoard clearContents];
-        [self.pBoard setString:[dict objectForKey:@"Name"] forType:NSPasteboardTypeString];
+        [self.pBoard setString:[dict objectForKey:@"Paste"] forType:NSPasteboardTypeString];
 
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.tableView moveRowAtIndex:row toIndex:0];
@@ -166,7 +165,7 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
 
         NSImage *image = activeApp.icon.copy;
 
-        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys:myString, @"Name", image, @"Image", nil];
+        NSDictionary *dictionary = [[NSDictionary alloc] initWithObjectsAndKeys: activeAppName, @"Name",myString, @"Paste", image, @"Image", nil];
         [_tableContents insertObject:dictionary atIndex:0];
 
         
@@ -204,9 +203,10 @@ NSString *const CopyPasteShortCut = @"CopyPasteShortCut";
     // In IB the tableColumn has the identifier set to the same string as the keys in our dictionary
     NSString *identifier = [tableColumn identifier];
     
-    NSTableCellView *cellView = [aTableView makeViewWithIdentifier:identifier owner:self];
-    cellView.textField.stringValue = [dictionary objectForKey:@"Name"];
-    cellView.imageView.objectValue = [dictionary objectForKey:@"Image"];
+    CopyPasterinoTableCellView *cellView  = [aTableView makeViewWithIdentifier:identifier owner:self];
+    cellView.textField.stringValue        = [dictionary objectForKey:@"Paste"];
+    cellView.appNameTextField.stringValue = [dictionary objectForKey:@"Name"];
+    cellView.imageView.objectValue        = [dictionary objectForKey:@"Image"];
 
     return cellView;
 }
