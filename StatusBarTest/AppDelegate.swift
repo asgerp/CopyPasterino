@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     let MAX_NUMBER_OF_ITEMS:Int = 5
     var _tableContents: [Paste] = []
     var isOpen:Bool = false
+    var pasteBoardObserver : PasteBoardObserver = PasteBoardObserver()
+    
     var pBoard:NSPasteboard = NSPasteboard.generalPasteboard()
     
     var count:Int = 0
@@ -26,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     
     // MARK: did finish launch
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        // Insert code here to initialize your application
+
         self.tableView.setDataSource(self)
         self.tableView.target = self
         self.tableView.doubleAction = Selector("updateTableAndPaste")
@@ -35,13 +37,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
         self.statusItem.menu = self.statusMenu
         self.statusItem.menu?.delegate = self
+        self.statusItem.title = "CP"
         self.statusItem!.image = NSImage(named: "Status")
         self.statusItem!.alternateImage = NSImage(named: "StatusHighlighted")
         self.statusItem!.highlightMode = true
         
-        self.addMenuItem()
+        var textSubscriber = PasteBoardTextSubscriber()
+        pasteBoardObserver.addSubscriber(textSubscriber)
+        pasteBoardObserver.startObserving()
         
-        NSTimer.scheduledTimerWithTimeInterval(0.9, target: self, selector: Selector("updateMenuItem"), userInfo: nil, repeats: true)
+//        self.addMenuItem()
+        
+  //      NSTimer.scheduledTimerWithTimeInterval(0.9, target: self, selector: Selector("updateMenuItem"), userInfo: nil, repeats: true)
         
     }
     
@@ -76,7 +83,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         dispatch_async(queue, {() -> Void in
             var paste = self._tableContents.removeAtIndex(row)
             self._tableContents.insert(paste, atIndex: 0)
-            self.count += 1
+            self.pasteBoardObserver.change += 1
             self.pBoard.clearContents()
             self.pBoard.setString(paste.paste, forType: NSPasteboardTypeString)
             dispatch_sync(dispatch_get_main_queue(), {() -> Void in
@@ -87,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
 
 
     func setPasteBoardString(Sender: NSMenuItem){
-        
+        println("her 1")
         var menu:NSMenu = self.statusItem!.menu!
         
         menu.removeItem(Sender)
@@ -98,6 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
 
 
     func addMenuItem(){
+                println("her addmenu")
         var myString:String = self.pBoard.stringForType(NSPasteboardTypeString)!
         
         var menu:NSMenu = self.statusItem!.menu!
@@ -136,6 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     }
     
     func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn!, row: Int) -> NSView? {
+                println("her table")
         let dictionary:Paste = _tableContents[row]
         var identifier:String = tableColumn.identifier
         
