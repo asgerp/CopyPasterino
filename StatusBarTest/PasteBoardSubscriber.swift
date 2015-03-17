@@ -7,3 +7,8 @@
 //
 
 import Foundation
+import Cocoa
+
+@objc protocol PasteBoardSubscriber: NSObjectProtocol {
+    func pasteBoardChanged(pasteboard: NSPasteboard)
+}
