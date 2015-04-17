@@ -3,19 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001372921AB6FC290009E918 /* PasteBoardSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001372911AB6FC290009E918 /* PasteBoardSubscriber.swift */; };
+		001372941AB752EC0009E918 /* PasteBoardTextSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001372931AB752EC0009E918 /* PasteBoardTextSubscriber.swift */; };
 		002EC4F5195C3389002AD64A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC4F4195C3389002AD64A /* Cocoa.framework */; };
 		002EC4FF195C3389002AD64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002EC4FD195C3389002AD64A /* InfoPlist.strings */; };
 		002EC505195C3389002AD64A /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 002EC503195C3389002AD64A /* Credits.rtf */; };
 		002EC50B195C338A002AD64A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002EC509195C338A002AD64A /* MainMenu.xib */; };
 		002EC50D195C338A002AD64A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002EC50C195C338A002AD64A /* Images.xcassets */; };
-		002EC514195C338A002AD64A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC513195C338A002AD64A /* XCTest.framework */; };
 		002EC515195C338A002AD64A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC4F4195C3389002AD64A /* Cocoa.framework */; };
 		002EC51D195C338A002AD64A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002EC51B195C338A002AD64A /* InfoPlist.strings */; };
 		002EC51F195C338A002AD64A /* StatusBarTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 002EC51E195C338A002AD64A /* StatusBarTestTests.m */; };
+		00B68F4E1A93E0D1000F5448 /* PasteBoardObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B68F4D1A93E0D1000F5448 /* PasteBoardObserver.swift */; };
 		00B74A76195C3E33000AE9B0 /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A74195C3E33000AE9B0 /* Status.png */; };
 		00B74A77195C3E33000AE9B0 /* Status@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A75195C3E33000AE9B0 /* Status@2x.png */; };
 		00B74A7A195C3E3F000AE9B0 /* StatusHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B74A78195C3E3F000AE9B0 /* StatusHighlighted.png */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001372911AB6FC290009E918 /* PasteBoardSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteBoardSubscriber.swift; sourceTree = "<group>"; };
+		001372931AB752EC0009E918 /* PasteBoardTextSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteBoardTextSubscriber.swift; sourceTree = "<group>"; };
 		002EC4F1195C3389002AD64A /* CopyPasterino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CopyPasterino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		002EC4F4195C3389002AD64A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		002EC4F7195C3389002AD64A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -50,10 +54,10 @@
 		002EC50A195C338A002AD64A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		002EC50C195C338A002AD64A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		002EC512195C338A002AD64A /* CopyPasterinoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CopyPasterinoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		002EC513195C338A002AD64A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		002EC51A195C338A002AD64A /* CopyPasterinoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CopyPasterinoTests-Info.plist"; sourceTree = "<group>"; };
 		002EC51C195C338A002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		002EC51E195C338A002AD64A /* StatusBarTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusBarTestTests.m; sourceTree = "<group>"; };
+		00B68F4D1A93E0D1000F5448 /* PasteBoardObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteBoardObserver.swift; sourceTree = "<group>"; };
 		00B74A74195C3E33000AE9B0 /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status.png; sourceTree = "<group>"; };
 		00B74A75195C3E33000AE9B0 /* Status@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Status@2x.png"; sourceTree = "<group>"; };
 		00B74A78195C3E3F000AE9B0 /* StatusHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatusHighlighted.png; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 		00CDCACA1A91426B00FD8F77 /* Paste.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paste.swift; sourceTree = "<group>"; };
 		00CDCB4E1A92289A00FD8F77 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0BBC1974CD5B63FE58FC74B6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		49C307381AE186E2009FC686 /* StatusBarTest-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StatusBarTest-Prefix.pch"; sourceTree = "<group>"; };
 		CE8BD8443D383DB54FC76063 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD179024C0F66D762DAFAE03 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,7 +88,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				002EC515195C338A002AD64A /* Cocoa.framework in Frameworks */,
-				002EC514195C338A002AD64A /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				002EC4F4195C3389002AD64A /* Cocoa.framework */,
-				002EC513195C338A002AD64A /* XCTest.framework */,
 				002EC4F6195C3389002AD64A /* Other Frameworks */,
 				0BBC1974CD5B63FE58FC74B6 /* libPods.a */,
 			);
@@ -145,6 +148,9 @@
 				002EC50C195C338A002AD64A /* Images.xcassets */,
 				002EC4FB195C3389002AD64A /* Supporting Files */,
 				00CDCAC51A90ECD800FD8F77 /* CopyPasterino-Bridging-Header.h */,
+				00B68F4D1A93E0D1000F5448 /* PasteBoardObserver.swift */,
+				001372911AB6FC290009E918 /* PasteBoardSubscriber.swift */,
+				001372931AB752EC0009E918 /* PasteBoardTextSubscriber.swift */,
 			);
 			path = StatusBarTest;
 			sourceTree = "<group>";
@@ -152,6 +158,7 @@
 		002EC4FB195C3389002AD64A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49C307381AE186E2009FC686 /* StatusBarTest-Prefix.pch */,
 				002EC4FC195C3389002AD64A /* CopyPasterino-Info.plist */,
 				002EC4FD195C3389002AD64A /* InfoPlist.strings */,
 				002EC502195C3389002AD64A /* CopyPasterino-Prefix.pch */,
@@ -243,7 +250,7 @@
 				};
 			};
 			buildConfigurationList = 002EC4EC195C3389002AD64A /* Build configuration list for PBXProject "CopyPasterino" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -325,10 +332,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B68F4E1A93E0D1000F5448 /* PasteBoardObserver.swift in Sources */,
 				00CDCAC91A90F0FA00FD8F77 /* CopyPasterinoTableCellView.swift in Sources */,
+				001372921AB6FC290009E918 /* PasteBoardSubscriber.swift in Sources */,
 				00CDCB4F1A92289A00FD8F77 /* main.swift in Sources */,
 				00CDCAC71A90ECD800FD8F77 /* AppDelegate.swift in Sources */,
 				00CDCACB1A91426B00FD8F77 /* Paste.swift in Sources */,
+				001372941AB752EC0009E918 /* PasteBoardTextSubscriber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

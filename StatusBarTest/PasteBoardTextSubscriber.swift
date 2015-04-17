@@ -14,7 +14,7 @@ class PasteBoardTextSubscriber: NSObject, PasteBoardSubscriber {
     func pasteBoardChanged(pasteboard: NSPasteboard) {
         println("in da subs")
         
-        let appDelegate = NSApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         
         let myString = pasteboard.stringForType(NSPasteboardTypeString)!
         var menu:NSMenu = appDelegate.statusItem!.menu!
@@ -30,7 +30,7 @@ class PasteBoardTextSubscriber: NSObject, PasteBoardSubscriber {
         
         let activeAppName = activeApp?.localizedName
         
-        let image = activeApp?.icon?.copy() as NSImage
+        let image = activeApp?.icon?.copy() as! NSImage
         
         var paste:Paste = Paste(paste: myString, name: activeAppName!, image: image)
         appDelegate._tableContents.insert(paste, atIndex: 0)

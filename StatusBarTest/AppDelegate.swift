@@ -17,7 +17,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     
     var pBoard:NSPasteboard = NSPasteboard.generalPasteboard()
     
-    var count:Int = 0
 
     //MARK: outlets
     @IBOutlet var window:NSWindow!
@@ -27,12 +26,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     @IBOutlet var statusMenu:NSMenu!
     
     // MARK: did finish launch
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
 
         self.tableView.setDataSource(self)
         self.tableView.target = self
         self.tableView.doubleAction = Selector("updateTableAndPaste")
-        self.count = pBoard.changeCount
         
         self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
         self.statusItem.menu = self.statusMenu
@@ -42,38 +40,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         self.statusItem!.alternateImage = NSImage(named: "StatusHighlighted")
         self.statusItem!.highlightMode = true
         
+        // init observer and subscribers
         var textSubscriber = PasteBoardTextSubscriber()
         pasteBoardObserver.addSubscriber(textSubscriber)
         pasteBoardObserver.startObserving()
-        
-//        self.addMenuItem()
-        
-  //      NSTimer.scheduledTimerWithTimeInterval(0.9, target: self, selector: Selector("updateMenuItem"), userInfo: nil, repeats: true)
-        
-    }
-    
-    //MARK:
-    func updateMenuItem(){
-        var queue:dispatch_queue_attr_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-        dispatch_async(queue, {
-            () -> Void in
-            var change = self.changeCountChange()
-            dispatch_sync(dispatch_get_main_queue(), {() -> Void in
-                if(!change){
-                    self.addMenuItem()
-                }
-            })
-        })
-    }
-
-
-    //MARK:
-    func changeCountChange() -> Bool {
-        if (self.count != self.pBoard.changeCount){
-            self.count = self.pBoard.changeCount
-            return false
-        }
-        return true
     }
     
     
@@ -104,31 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     }
 
 
-    func addMenuItem(){
-                println("her addmenu")
-        var myString:String = self.pBoard.stringForType(NSPasteboardTypeString)!
-        
-        var menu:NSMenu = self.statusItem!.menu!
-        var numberOfItems = menu.numberOfItems + 1
-        var menuItem:NSMenuItem = NSMenuItem(title: myString, action: Selector("setPasteBoardString:"),
-            keyEquivalent: String(numberOfItems))
-        menuItem.representedObject = menuItem
-        menuItem.target = self
-        menuItem.enabled = true
-        menu.addItem(menuItem)
-        
-        let activeApp = NSWorkspace.sharedWorkspace().frontmostApplication
-        
-        let activeAppName = activeApp?.localizedName
-        
-        let image = activeApp?.icon?.copy() as NSImage
-        
-        var paste:Paste = Paste(paste: myString, name: activeAppName!, image: image)
-        self._tableContents.insert(paste, atIndex: 0)
-        self.tableView.reloadData()
-    }
-
-    
     //MARK:
     func menuWillOpen(menu: NSMenu) {
         self.isOpen = true
@@ -143,13 +88,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         return _tableContents.count
     }
     
-    func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn!, row: Int) -> NSView? {
+    func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
                 println("her table")
         let dictionary:Paste = _tableContents[row]
-        var identifier:String = tableColumn.identifier
+        var identifier:String = tableColumn!.identifier
         
 
-        var cellView:CopyPasterinoTableCellView = aTableView.makeViewWithIdentifier(identifier, owner: self) as CopyPasterinoTableCellView
+        var cellView:CopyPasterinoTableCellView = aTableView.makeViewWithIdentifier(identifier, owner: self) as! CopyPasterinoTableCellView
         
         cellView.textField?.stringValue = dictionary.paste
         cellView.appNameTextField.stringValue = dictionary.name
