@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewDelegate, NSTableViewDataSource {
     let MAX_NUMBER_OF_ITEMS:Int = 5
@@ -44,10 +45,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         var textSubscriber = PasteBoardTextSubscriber()
         pasteBoardObserver.addSubscriber(textSubscriber)
         pasteBoardObserver.startObserving()
+        //  set up keyboard shortcut
+        let keyMask: NSEventModifierFlags = .CommandKeyMask | .ControlKeyMask | .AlternateKeyMask
+        let keyCode = UInt(kVK_Space)
+        let shortcut = MASShortcut(keyCode: keyCode, modifierFlags: keyMask.rawValue)
+        
+        MASShortcutMonitor.sharedMonitor().registerShortcut(shortcut, withAction: shortCutCallBack)
+        
+    }
+    
+    func applicationWillTerminate(notification: NSNotification) {
+        MASShortcutMonitor.sharedMonitor().unregisterAllShortcuts()
+    }
+    
+    func shortCutCallBack(){
+        println("pressed short cut")
+        NSApp.activateIgnoringOtherApps(true)
+        println("window should be front")
     }
     
     
     func updateTableAndPaste(){
+        println("updateTableAndPaste")
         var queue:dispatch_queue_attr_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         var row:Int = self.tableView.clickedRow
         dispatch_async(queue, {() -> Void in
