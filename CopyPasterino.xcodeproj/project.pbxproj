@@ -49,7 +49,6 @@
 		002EC4F9195C3389002AD64A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		002EC4FC195C3389002AD64A /* CopyPasterino-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CopyPasterino-Info.plist"; sourceTree = "<group>"; };
 		002EC4FE195C3389002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		002EC502195C3389002AD64A /* CopyPasterino-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CopyPasterino-Prefix.pch"; sourceTree = "<group>"; };
 		002EC504195C3389002AD64A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		002EC50A195C338A002AD64A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		002EC50C195C338A002AD64A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -161,7 +160,6 @@
 				49C307381AE186E2009FC686 /* StatusBarTest-Prefix.pch */,
 				002EC4FC195C3389002AD64A /* CopyPasterino-Info.plist */,
 				002EC4FD195C3389002AD64A /* InfoPlist.strings */,
-				002EC502195C3389002AD64A /* CopyPasterino-Prefix.pch */,
 				002EC503195C3389002AD64A /* Credits.rtf */,
 				00CDCB4E1A92289A00FD8F77 /* main.swift */,
 			);
@@ -481,6 +479,7 @@
 				GCC_PREFIX_HEADER = "StatusBarTest/CopyPasterino-Prefix.pch";
 				INFOPLIST_FILE = "StatusBarTest/CopyPasterino-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = CopyPasterino;
 				SWIFT_OBJC_BRIDGING_HEADER = "StatusBarTest/CopyPasterino-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -500,6 +499,7 @@
 				GCC_PREFIX_HEADER = "StatusBarTest/CopyPasterino-Prefix.pch";
 				INFOPLIST_FILE = "StatusBarTest/CopyPasterino-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = CopyPasterino;
 				SWIFT_OBJC_BRIDGING_HEADER = "StatusBarTest/CopyPasterino-Bridging-Header.h";
 				VERSIONING_SYSTEM = "apple-generic";
