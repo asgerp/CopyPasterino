@@ -12,7 +12,7 @@ import Cocoa
 class PasteBoardTextSubscriber: NSObject, PasteBoardSubscriber {
  
     func pasteBoardChanged(pasteboard: NSPasteboard) {
-        println("in da subs")
+        println("in text subscriber")
         
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
         
