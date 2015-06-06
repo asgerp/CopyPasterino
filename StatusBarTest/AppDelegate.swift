@@ -60,7 +60,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     
     func shortCutCallBack(){
         println("pressed short cut")
-        NSApp.activateIgnoringOtherApps(true)
+        println(self.window.visible)
+        if(self.window.visible == true){
+            self.window.orderOut(self)
+        } else {
+            self.window.makeKeyAndOrderFront(self)
+            NSApp.activateIgnoringOtherApps(true)
+        }
         println("window should be front")
     }
     
