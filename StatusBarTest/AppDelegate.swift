@@ -31,6 +31,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
 
         self.tableView.setDataSource(self)
         self.tableView.target = self
+        self.tableView.headerView = nil
         self.tableView.doubleAction = Selector("updateTableAndPaste")
         
         self.statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
