@@ -116,13 +116,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
         
 
         var cellView:CopyPasterinoTableCellView = aTableView.makeViewWithIdentifier(identifier, owner: self) as! CopyPasterinoTableCellView
-        
+
         cellView.textField?.stringValue = dictionary.paste
         cellView.appNameTextField.stringValue = dictionary.name
+        cellView.dateTextField.stringValue = dictionary.dateSet
         cellView.imageView?.objectValue = dictionary.image
+        cellView.rowSizeStyle = NSTableViewRowSizeStyle.Custom
         
         return cellView
-    }
-    
+    }    
 }
 

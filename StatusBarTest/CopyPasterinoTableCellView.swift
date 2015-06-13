@@ -7,9 +7,10 @@
 //
 
 import Foundation
-
+@IBDesignable
 class CopyPasterinoTableCellView: NSTableCellView {
     @IBOutlet var appNameTextField: NSTextField!
+    @IBOutlet var dateTextField: NSTextField!
     
     
     override func drawRect(dirtyRect: NSRect) {
