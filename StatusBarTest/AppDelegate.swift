@@ -59,15 +59,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     }
     
     func shortCutCallBack(){
-        println("pressed short cut")
-        println(self.window.visible)
-        if(self.window.visible == true){
+        if(self.window.visible == true ){
             self.window.orderOut(self)
         } else {
             self.window.makeKeyAndOrderFront(self)
             NSApp.activateIgnoringOtherApps(true)
         }
-        println("window should be front")
     }
     
     
@@ -89,7 +86,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
 
 
     func setPasteBoardString(Sender: NSMenuItem){
-        println("her 1")
         var menu:NSMenu = self.statusItem!.menu!
         
         menu.removeItem(Sender)
@@ -114,7 +110,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSTableViewD
     }
     
     func tableView(aTableView: NSTableView, viewForTableColumn tableColumn: NSTableColumn?, row: Int) -> NSView? {
-                println("her table")
         let dictionary:Paste = _tableContents[row]
         var identifier:String = tableColumn!.identifier
         
